@@ -1,0 +1,258 @@
+# --i3 配置文件 (v4)--
+# 文档: https://i3wm.org/docs/userguide.html
+
+# --Gaein nidb 的配置文件--
+# Gaein nidb,https://www.Gaein.cn
+# 2021/1/10
+
+# 绑定mod为Win键
+set $mod Mod4
+
+# 窗口的字体字号
+font pango:DejaVu Sans Mono 12
+
+# --自定义启动程序--
+#
+# 启用输入法
+exec_always --no-startup-id fcitx5
+# 启动半透明
+exec --no-startup-id compton -b
+# 启动搜索
+exec --no-startup-id albert
+# 启动JetBrainsToolbox
+exec jetbrains-toolbox
+# 启动SSR
+exec ssr start
+# 设置壁纸
+exec_always --no-startup-id feh --bg-fill /home/nidb/background.jpg
+# 启动终端
+exec terminator
+
+# --声音管理--
+# 
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Win+鼠标拖动浮动窗口（？不用win键也能拖动）
+floating_modifier $mod
+
+# --颜色设置--
+#
+# 颜色类                边框    背景    文字    ？未知  ？子边框
+# 
+# 聚焦的窗体
+client.focused          #FF9776 #FF7043 #E9EDEF #000000 #FF9776
+# 聚焦并且活动的窗体
+client.focused_inactive #FF9776 #FF7083 #E9EDEF #000000 #FF9776
+# 未聚焦的窗体
+client.unfocused        #C2B1AA #D7CCC8 #FFFFFF #000000 #C2B1AA
+# 
+client.urgent           #C2B1AA #D7CCC8 #FFFFFF #000000 #C2B1AA
+# 
+client.placeholder      #C2B1AA #D7CCC8 #FFFFFF #000000 #C2B1AA
+
+# --快捷键绑定--
+#
+# Win+Enter     开启终端
+bindsym $mod+Return exec terminator 
+# Win+Shift+Q   退出窗口
+bindsym $mod+Shift+q kill
+# Win+D         快速启动窗口
+bindsym $mod+d exec albert show
+# Win+箭头      改变焦点
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# Win+Shift+箭头    移动聚焦的窗口
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# Win+H     横向分割
+bindsym $mod+h split h
+# Win+V     纵向分割
+bindsym $mod+v split v
+# Win+F     全屏聚焦的容器
+bindsym $mod+f fullscreen toggle
+# 改变容器布局
+# Win+S     只显示一个窗口，其余列表堆叠在上方
+bindsym $mod+s layout stacking
+# Win+w     只显示一个窗口，其余列表为标签
+bindsym $mod+w layout tabbed
+# Win+e     平铺放置所有窗口
+bindsym $mod+e layout toggle split
+# Win+Shift+空格    将窗口设置为悬浮
+bindsym $mod+Shift+space floating toggle
+# Win+空格          在悬浮窗口和普通窗口直接切换焦点change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# --设置工作区序号--
+# 
+# 1~9
+set $ws1 "甲"
+set $ws2 "乙"
+set $ws3 "丙"
+set $ws4 "丁"
+set $ws5 "戊"
+set $ws6 "己"
+set $ws7 "庚"
+set $ws8 "辛"
+set $ws9 "壬"
+
+# --工作区设置--
+# 
+# Win+数字（1~9）       切换到指定工作区
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+
+# Win+Shift+数字（1~9） 切换到工作区
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+
+# --自定义快捷键--
+#
+# Win+B     JetBrains ToolBox
+bindsym $mod+b exec jetbrains-toolbox
+# Win+G     Google Chrome浏览器
+bindsym $mod+g exec google-chrome-stable
+# Win+M     网易云引用
+bindsym $mod+m exec netease-cloud-music,floating enable
+# Win+C     Visual Studio Code
+bindsym $mod+c exec code
+
+# --i3启动快捷键--
+# 
+# 重启i3
+bindsym $mod+Shift+r restart
+# 退出i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '检测到按下了退出i3快捷键。你是否需要退出i3？这将会回到TTY终端。' -B '是，退出i3' 'i3-msg exit'"
+
+# --JetBrains 软件悬浮平铺自动设置--
+#
+# JetBrains程序启动默认悬浮
+for_window [class="jetbrains"] floating enable
+# 
+# JetBrains ToolBox 设置（吸附、无边框）
+for_window [class="jetbrains-toolbox"] sticky enable
+for_window [class="jetbrains-toolbox"] border none
+# 
+# JetBrains IDE 设置（加载项目后平铺）
+for_window [title="(.*?)Projects(.*?)"] floating disable
+for_window [title="(.*?) (.*?) (.*?)"] floating disable
+
+# --网易云 软件悬浮平铺自动设置--
+#
+# 网易云启动默认悬浮
+for_window [class="netease-cloud-music"] floating enable
+
+
+# 调整窗口大小
+mode "调整" {
+    # --调整模式按键--
+    # 仅在调整模式中生效
+    #
+    # 箭头 调整窗口大小
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+    # 回车,空格,Win+R 回退到正常模式
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+# WIN+R 调整大小
+bindsym $mod+r mode "调整"
+
+# 顶部条设置
+bar {
+
+    # 字体设置
+    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+    font pango:DejaVu Sans Mono 12
+
+    # 图标间距
+    tray_padding 2
+    
+    # 不显示工作区按钮
+    workspace_buttons no
+
+    # 位置设置
+    position top
+
+    # 绑定鼠标按键
+    bindsym --release button2 exec exec code ~/.config/i3/config
+    
+    # 颜色设置
+    colors {
+        # 背景颜色
+        background #333399
+        # 文字颜色
+        statusline #52FFFF
+    }
+
+    # 执行的命令（自定义显示脚本）
+    status_command ~/.local/share/i3MyStatus/main.sh
+}
+
+# 底部条设置
+bar {
+
+    # 字体设置
+    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+    font pango:DejaVu Sans Mono 14
+
+    # 分割的图标
+    separator_symbol "<<"
+
+    # 图标间距
+    tray_padding 2
+
+    # 位置设置
+    position bottom
+
+    # 模式：显示
+    mode dock
+
+    # 颜色设置
+    colors {
+        # 背景颜色
+        background #217EE7
+        # 分割线颜色
+        statusline #52FFFF
+        # 文字颜色
+        separator #CCFF99
+
+        # 工作区按钮颜色设置    # 边框  # 背景  # 文字
+        # 聚焦的工作区
+        focused_workspace       #52FFFF #C07015 #FFFFFF
+        # 活动的工作区
+        active_workspace        #217EE7 #954527 #217EE7
+        
+        inactive_workspace      #217EE7 #954527 #217EE7
+        # 工作区提示
+        urgent_workspace        #E5E5E5 #104D92 #FFFFFF
+    }
+
+    # 执行的命令（i3status）
+    status_command i3status
+}
