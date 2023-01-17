@@ -8,25 +8,37 @@
 # 绑定mod为Win键
 set $mod Mod4
 
+# --设置工作区序号--
+# 
+# 1~9
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+
+set $terminal kitty
+
 # 窗口的字体字号
-font pango:DejaVu Sans Mono 12
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango: CaskaydiaCove NF 14
+font pango: GLow Sans SC 14
 
 # --自定义启动程序--
 #
 # 启用输入法
-exec_always --no-startup-id fcitx5
+# exec_always --no-startup-id fcitx5
 # 启动半透明
-exec --no-startup-id compton -b
+exec --no-startup-id picom -b
 # 启动搜索
 exec --no-startup-id albert
-# 启动JetBrainsToolbox
+# 启动 JetBrains Toolbox
 exec jetbrains-toolbox
-# 启动SSR
-exec ssr start
 # 设置壁纸
-exec_always --no-startup-id feh --bg-fill /home/nidb/background.jpg
+exec_always --no-startup-id feh --bg-fill ~/background
 # 启动终端
-exec terminator
+exec $terminal
 
 # --声音管理--
 # 
@@ -57,11 +69,9 @@ client.placeholder      #C2B1AA #D7CCC8 #FFFFFF #000000 #C2B1AA
 # --快捷键绑定--
 #
 # Win+Enter     开启终端
-bindsym $mod+Return exec terminator 
+bindsym $mod+Return exec $terminal 
 # Win+Shift+Q   退出窗口
 bindsym $mod+Shift+q kill
-# Win+D         快速启动窗口
-bindsym $mod+d exec albert show
 # Win+箭头      改变焦点
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -90,19 +100,6 @@ bindsym $mod+Shift+space floating toggle
 # Win+空格          在悬浮窗口和普通窗口直接切换焦点change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# --设置工作区序号--
-# 
-# 1~9
-set $ws1 "甲"
-set $ws2 "乙"
-set $ws3 "丙"
-set $ws4 "丁"
-set $ws5 "戊"
-set $ws6 "己"
-set $ws7 "庚"
-set $ws8 "辛"
-set $ws9 "壬"
-
 # --工作区设置--
 # 
 # Win+数字（1~9）       切换到指定工作区
@@ -129,6 +126,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # --自定义快捷键--
 #
+# Win+Shift+S flameshot
+bindsym $mod+Shift+S exec flameshot gui
 # Win+B     JetBrains ToolBox
 bindsym $mod+b exec jetbrains-toolbox
 # Win+G     Google Chrome浏览器
@@ -158,71 +157,41 @@ for_window [class="jetbrains-toolbox"] border none
 for_window [title="(.*?)Projects(.*?)"] floating disable
 for_window [title="(.*?) (.*?) (.*?)"] floating disable
 
-# --网易云 软件悬浮平铺自动设置--
-#
-# 网易云启动默认悬浮
-for_window [class="netease-cloud-music"] floating enable
-
-
-# 调整窗口大小
-mode "调整" {
-    # --调整模式按键--
-    # 仅在调整模式中生效
-    #
-    # 箭头 调整窗口大小
-    bindsym Left resize shrink width 5 px or 5 ppt
-    bindsym Down resize grow height 5 px or 5 ppt
-    bindsym Up resize shrink height 5 px or 5 ppt
-    bindsym Right resize grow width 5 px or 5 ppt
-    # 回车,空格,Win+R 回退到正常模式
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
-}
-
-# WIN+R 调整大小
-bindsym $mod+r mode "调整"
-
 # 顶部条设置
-bar {
-
+#bar {
+#
     # 字体设置
-    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:DejaVu Sans Mono 12
+#    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+ #   font pango:DejaVu Sans Mono 12
 
     # 图标间距
-    tray_padding 2
+    #tray_padding 2
     
     # 不显示工作区按钮
-    workspace_buttons no
+    #workspace_buttons no
 
     # 位置设置
-    position top
+    #position top
 
     # 绑定鼠标按键
-    bindsym --release button2 exec exec code ~/.config/i3/config
+    #bindsym --release button2 exec exec code ~/.config/i3/config
     
     # 颜色设置
-    colors {
+    #colors {
         # 背景颜色
-        background #333399
+     #   background #333399
         # 文字颜色
-        statusline #52FFFF
-    }
+      #  statusline #52FFFF
+    #}
 
     # 执行的命令（自定义显示脚本）
-    status_command ~/.local/share/i3MyStatus/main.sh
-}
+    #status_command ~/.local/share/i3MyStatus/main.sh
+#}
 
 # 底部条设置
 bar {
-
-    # 字体设置
-    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:DejaVu Sans Mono 14
-
     # 分割的图标
-    separator_symbol "<<"
+    separator_symbol "|"
 
     # 图标间距
     tray_padding 2
