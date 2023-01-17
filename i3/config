@@ -109,9 +109,6 @@ bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
 
 # Win+Shift+数字（1~9） 切换到工作区
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -120,9 +117,6 @@ bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # --自定义快捷键--
 #
@@ -130,12 +124,10 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+S exec flameshot gui
 # Win+B     JetBrains ToolBox
 bindsym $mod+b exec jetbrains-toolbox
-# Win+G     Google Chrome浏览器
-bindsym $mod+g exec google-chrome-stable
-# Win+M     网易云引用
-bindsym $mod+m exec netease-cloud-music,floating enable
 # Win+C     Visual Studio Code
 bindsym $mod+c exec code
+# Win+G     Microsoft Edge 浏览器
+bindsym $mod+g exec microsoft-edge-stable
 
 # --i3启动快捷键--
 # 
