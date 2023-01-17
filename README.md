@@ -2,9 +2,15 @@
 
 This repositry contains my i3wm config files.
 
+![overview](./overview.webp)
+
 > alert: Those config files were first wrote in 2021/1/10, there maybe some thing wrong.
 
 Where is Chinese version? I haven't install my Chinese input method, so there is no README_zh-cn.md. But you can alwayse start a issue in Chinese and I may replay you in English.
+
+## Features
+
+* Icons on status bar
 
 ## Prerequirement
 
