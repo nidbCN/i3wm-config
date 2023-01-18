@@ -42,6 +42,6 @@ git clone https://github.com/nidbCN/i3wm-config.git ~/Documents/Config/
 
 This script will create link from `.config/i3` to this repositry.
 
-## AnyQuestion
+## Any Question
 
 Just start a new issue!

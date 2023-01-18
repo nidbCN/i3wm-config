@@ -21,9 +21,16 @@ set $ws6 "6"
 set $terminal kitty
 
 # 窗口的字体字号
+# the last render font will be apply 
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango: CaskaydiaCove NF 14
+# render Chinese + English
 font pango: GLow Sans SC 14
+# render English
+font pango: CaskaydiaCove NF 14
+font pango: DejaVuSansMono NF 14
+font pango: FiraCode NF 14
+font pango: JetBrainsMono NF 14
+font pango: Ubuntu NF 14
 
 # --自定义启动程序--
 #
