@@ -58,20 +58,15 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Win+鼠标拖动浮动窗口（？不用win键也能拖动）
 floating_modifier $mod
 
-# --颜色设置--
-#
-# 颜色类                边框    背景    文字    ？未知  ？子边框
-# 
-# 聚焦的窗体
-client.focused          #FF9776 #FF7043 #E9EDEF #000000 #FF9776
-# 聚焦并且活动的窗体
-client.focused_inactive #FF9776 #FF7083 #E9EDEF #000000 #FF9776
-# 未聚焦的窗体
-client.unfocused        #C2B1AA #D7CCC8 #FFFFFF #000000 #C2B1AA
-# 
-client.urgent           #C2B1AA #D7CCC8 #FFFFFF #000000 #C2B1AA
-# 
-client.placeholder      #C2B1AA #D7CCC8 #FFFFFF #000000 #C2B1AA
+# use dracula
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
 
 # --快捷键绑定--
 #
@@ -156,37 +151,6 @@ for_window [class="jetbrains-toolbox"] border none
 for_window [title="(.*?)Projects(.*?)"] floating disable
 for_window [title="(.*?) (.*?) (.*?)"] floating disable
 
-# 顶部条设置
-#bar {
-#
-    # 字体设置
-#    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
- #   font pango:DejaVu Sans Mono 12
-
-    # 图标间距
-    #tray_padding 2
-    
-    # 不显示工作区按钮
-    #workspace_buttons no
-
-    # 位置设置
-    #position top
-
-    # 绑定鼠标按键
-    #bindsym --release button2 exec exec code ~/.config/i3/config
-    
-    # 颜色设置
-    #colors {
-        # 背景颜色
-     #   background #333399
-        # 文字颜色
-      #  statusline #52FFFF
-    #}
-
-    # 执行的命令（自定义显示脚本）
-    #status_command ~/.local/share/i3MyStatus/main.sh
-#}
-
 # 底部条设置
 bar {
     # 分割的图标
@@ -201,24 +165,17 @@ bar {
     # 模式：显示
     mode dock
 
-    # 颜色设置
+    # from dracula
     colors {
-        # 背景颜色
-        background #217EE7
-        # 分割线颜色
-        statusline #52FFFF
-        # 文字颜色
-        separator #CCFF99
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
 
-        # 工作区按钮颜色设置    # 边框  # 背景  # 文字
-        # 聚焦的工作区
-        focused_workspace       #52FFFF #C07015 #FFFFFF
-        # 活动的工作区
-        active_workspace        #217EE7 #954527 #217EE7
-        
-        inactive_workspace      #217EE7 #954527 #217EE7
-        # 工作区提示
-        urgent_workspace        #E5E5E5 #104D92 #FFFFFF
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
     }
 
     # 执行的命令（i3status）
