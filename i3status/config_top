@@ -1,0 +1,26 @@
+general {
+    colors = true
+    interval = 1
+
+    // from dracula
+    output_format = "i3bar"
+    color_good = "#50FA7B"
+    color_degraded = "#F1FA8C"
+    color_bad = "#FF5555"
+}
+
+order += "cpu_usage"
+order += "load"
+order += "tztime local"
+
+cpu_usage {
+    format = " 󰘨 CPU:%usage "
+}
+
+load {
+    format =" 󰒋 Load:%1min %5min %15min "
+}
+
+tztime local {
+    format = " 󰥔 DateTime:%Y-%m-%d %H:%M:%S "
+}

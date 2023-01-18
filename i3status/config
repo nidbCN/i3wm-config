@@ -1,6 +1,6 @@
 general {
     colors = true
-    interval = 1
+    interval = 10
 
     // from dracula
     output_format = "i3bar"
@@ -9,13 +9,11 @@ general {
     color_bad = "#FF5555"
 }
 
-order += "cpu_usage"
 order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "memory"
 order += "battery all"
-order += "tztime local"
 
 cpu_usage {
     format = "󰘨 %usage"
@@ -24,11 +22,14 @@ cpu_usage {
 disk "/" {
     prefix_type = "decimal"
     format = "󰋊 %total(%percentage_used)"
+    low_threshold = 10
+    threshold_type = percentage_free
+    format_below_threshold = "󱁋 %total(%percentage_used)"
 }
 
 wireless _first_ {
     format_up = "󱚻 %ip(%essid)"
-    format_down ="睊"
+    format_down = "󰖪"
 }
 
 ethernet _first_ {

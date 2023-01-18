@@ -151,6 +151,15 @@ for_window [class="jetbrains-toolbox"] border none
 for_window [title="(.*?)Projects(.*?)"] floating disable
 for_window [title="(.*?) (.*?) (.*?)"] floating disable
 
+bar {
+    position top
+    mode dock
+    workspace_buttons no
+    tray_output none
+
+    status_command i3status -c ~/.config/i3status/config_top
+}
+
 # 底部条设置
 bar {
     # 分割的图标
