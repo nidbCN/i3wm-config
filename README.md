@@ -1,20 +1,29 @@
 # i3wm config
 
-This repositry contains my i3wm config files.
+This repositry contains my i3wm config files, but not only i3.
 
 ![overview](./overview.webp)
 
 > alert: Those config files were first wrote in 2021/1/10, there maybe some thing wrong.
 
-Where is Chinese version? I haven't install my Chinese input method, so there is no README_zh-cn.md. But you can alwayse start a issue in Chinese and I may replay you in English.
+Where is Chinese version? I haven't install my Chinese input method, so there is no such file like `README_zh-cn.md`. But you can alwayse start a issue in Chinese and I may replay you in English.
 
 ## Features
+
+### Configs
+
+* i3wm, i3status, i3lock-color
+* picom
 
 * Icons on status bar
 
 ## Prerequirement
 
-To show icons on i3status bar, you need install a nerd-font, the default font in my config is `Glow Sans SC` for Chinese.
+### Fonts
+
+The default font in my config is `Glow Sans SC` for Chinese.
+
+To show icons on i3status bar, you need install a nerd-font.
 
 And one of them for English:
 
@@ -31,6 +40,13 @@ Useful links:
 * [github.com:welai/glow-sans](https://github.com/welai/glow-sans)
 * [github.com:ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
+## Apps
+
+* i3(>=4.22) or i3-gaps
+* [WaterBar](https://github.com/nidbCN/waterbar), for top status bar
+* feh, for background
+* picom
+
 ### Recommend Apps
 
 This config have set bind for those apps:
@@ -44,7 +60,7 @@ This config have set bind for those apps:
 ## Installation
 
 ```sh
-git clone https://github.com/nidbCN/i3wm-config.git ~/Documents/Config/
+git clone https://github.com/nidbCN/i3wm-config.git
 ./link.sh
 ```
 
