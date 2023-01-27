@@ -1,14 +1,10 @@
-# --i3 配置文件 (v4)--
-# 文档: https://i3wm.org/docs/userguide.html
+# i3 config, v4.1.3-2023.1.27
+# reference: https://i3wm.org/docs/userguide.html
 
-# --Gaein nidb 的配置文件--
-# Gaein nidb,https://www.Gaein.cn
-# 2021/1/10
-
-# 绑定mod为Win键
+# Super: win
 set $mod Mod4
 
-# --设置工作区序号--
+# --workspace--
 # 
 # 1~9
 set $ws1 "1"
@@ -17,10 +13,14 @@ set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 
+# --terminal--
 set $terminal kitty
 
-# 窗口的字体字号
+# --fonts--
 # the last render font will be apply 
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # render Chinese + English
@@ -32,9 +32,9 @@ font pango: FiraCode NF 14
 font pango: JetBrainsMono NF 14
 font pango: Ubuntu NF 14
 
-# --自定义启动程序--
+# --startup--
 #
-# 启用输入法
+# Chinese input
 # exec_always --no-startup-id fcitx5
 # 启动半透明
 exec --no-startup-id picom -b
