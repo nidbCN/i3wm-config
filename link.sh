@@ -15,3 +15,6 @@ ln -s $(pwd)/appsettings.json ~/appsettings.json
 
 # background
 ln -s $(pwd)/background.png ~/ev007bl.png
+
+mkdir -p ~/.config/dunst/
+ln -s $(pwd)/dunstrc ~/.config/dunst/dunstrc

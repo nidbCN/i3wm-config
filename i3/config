@@ -21,16 +21,19 @@ set $ws9 "9"
 set $terminal kitty
 
 # --fonts--
+set $font_size 16
 # the last render font will be apply 
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# render emoji
+font pango: Noto Color Emoji $font_size
 # render Chinese + English
-font pango: GLow Sans SC 14
+font pango: GLow Sans SC $font_size
 # render English
-font pango: CaskaydiaCove NF 14
-font pango: DejaVuSansMono NF 14
-font pango: FiraCode NF 14
-font pango: JetBrainsMono NF 14
-font pango: Ubuntu NF 14
+font pango: CaskaydiaCove NF $font_size
+font pango: DejaVuSansMono NF $font_size
+font pango: FiraCode NF $font_size
+font pango: JetBrainsMono NF $font_size
+font pango: Ubuntu NF $font_size
 
 # --startup--
 #
@@ -186,8 +189,6 @@ bar {
 
     # 模式：显示
     mode dock
-
-    height 32
 
     # from dracula
     colors {
