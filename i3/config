@@ -40,10 +40,9 @@ font pango: Ubuntu NF 14
 exec --no-startup-id picom -b
 # 启动搜索
 exec --no-startup-id albert
-# 启动 JetBrains Toolbox
-exec jetbrains-toolbox
 # 设置壁纸
 exec_always --no-startup-id feh --bg-fill ~/background
+exec --no-startup-id flameshot
 # 启动终端
 exec $terminal
 
@@ -67,6 +66,8 @@ client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
+
+gaps inner 4
 
 # --快捷键绑定--
 #
@@ -111,6 +112,8 @@ bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
+bindsym $mod+Z workspace prev
+bindsym $mod+X workspace next 
 
 # Win+Shift+数字（1~9） 切换到工作区
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -136,7 +139,16 @@ bindsym $mod+g exec microsoft-edge-stable
 # 重启i3
 bindsym $mod+Shift+r restart
 # 退出i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '检测到按下了退出i3快捷键。你是否需要退出i3？这将会回到TTY终端。' -B '是，退出i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Are you sure to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+
+for_window [all] title_window_icon on
+for_window [all] title_window_icon padding 3px
+
+# float popup
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="(*?)Open File(*?)"] floating enable
+for_window [title="(*?)验证码(*?)"] floating enable
 
 # --JetBrains 软件悬浮平铺自动设置--
 #
@@ -157,7 +169,8 @@ bar {
     workspace_buttons no
     tray_output none
 
-    status_command i3status -c ~/.config/i3status/config_top
+    status_command ~/Documents/Codes/CSharp_Projects/WaterBar/WaterBar.Core/bin/Release/net7.0/linux-x64/WaterBar.Core 
+    #status_command i3status -c ~/.config/i3status/config_top
 }
 
 # 底部条设置
@@ -173,6 +186,8 @@ bar {
 
     # 模式：显示
     mode dock
+
+    height 32
 
     # from dracula
     colors {
