@@ -8,13 +8,19 @@ ln -s $(pwd)/i3status/config ~/.config/i3status/config
 ln -s $(pwd)/i3status/config_top ~/.config/i3status/config_top
 
 # i3lock-color
-ln -s $(pwd)/lock ~/lock
+mkdir -p ~/.local/bin
+ln -s $(pwd)/scripts/lock ~/.local/bin/lock
+
+# X hi-dpi
+ln -s $(pwd)/Xresources ~/.Xresources
+ln -s $(pwd)/scripts/scale.sh ~/.local/bin/scale.sh
 
 # WaterBar
 ln -s $(pwd)/appsettings.json ~/appsettings.json
 
 # background
-ln -s $(pwd)/background.png ~/ev007bl.png
+ln -s $(pwd)/ev007bl.png ~/Pictures/background
 
+# notify
 mkdir -p ~/.config/dunst/
 ln -s $(pwd)/dunstrc ~/.config/dunst/dunstrc

@@ -27,13 +27,13 @@ disk "/" {
     format_below_threshold = "󱁋 %total(%percentage_used)"
 }
 
-wireless _first_ {
-    format_up = "󱚻 %ip(%essid)"
+wireless "wifi-bond" {
+    format_up = "󱚻 %ip"
     format_down = "󰖪"
 }
 
-ethernet _first_ {
-    format_up = "󰈁 %ip(%speed)"
+ethernet "eth-bond" {
+    format_up = "󰈁 %ip"
     format_down = "󰈂"
 }
 
