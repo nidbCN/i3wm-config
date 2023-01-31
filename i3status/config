@@ -10,8 +10,8 @@ general {
 }
 
 order += "disk /"
-order += "wireless _first_"
-order += "ethernet _first_"
+order += "wireless wifi-bond"
+order += "ethernet eth-bond"
 order += "memory"
 order += "battery all"
 
@@ -21,14 +21,14 @@ cpu_usage {
 
 disk "/" {
     prefix_type = "decimal"
-    format = "󰋊 %total(%percentage_used)"
+    format = "󰋊 %used/%total(%percentage_used)"
     low_threshold = 10
     threshold_type = percentage_free
-    format_below_threshold = "󱁋 %total(%percentage_used)"
+    format_below_threshold = "󱁋 %used/%total(%percentage_used)"
 }
 
 wireless "wifi-bond" {
-    format_up = "󱚻 %ip"
+    format_up = "󰖩 %ip"
     format_down = "󰖪"
 }
 

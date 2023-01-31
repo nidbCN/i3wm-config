@@ -13,7 +13,7 @@ ln -s $(pwd)/scripts/lock ~/.local/bin/lock
 
 # X hi-dpi
 ln -s $(pwd)/Xresources ~/.Xresources
-ln -s $(pwd)/scripts/scale.sh ~/.local/bin/scale.sh
+sudo ln -s $(pwd)/scripts/scale.sh /etc/X11/xinit/xinitrc.d/scale.sh
 
 # WaterBar
 ln -s $(pwd)/appsettings.json ~/appsettings.json

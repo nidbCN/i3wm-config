@@ -39,16 +39,13 @@ font pango: Ubuntu NF $font_size
 #
 # Chinese input
 # exec_always --no-startup-id fcitx5
-exec "scale.sh"
 # 启动半透明
 exec --no-startup-id picom -b
-# 启动搜索
-exec --no-startup-id albert
-# 设置壁纸
+# background
 exec_always --no-startup-id feh --bg-fill ~/Pictures/background
+# apps
 exec --no-startup-id flameshot
-# 启动终端
-exec $terminal
+exec --no-startup-id albert
 
 # --声音管理--
 # 
